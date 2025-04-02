@@ -19,26 +19,92 @@ if (minutes < 10) {
 
 dateToday.innerHTML = `${day} ${hours}:${minutes}`;
 
+
+
 function citySubmit(event) {
   event.preventDefault();
+  //document.querySelector("main").classList.remove("hidden")
+  //document.querySelector("#hideAfterSubmit").classList.add("hidden")
   let enterCity = document.querySelector("#search-city");
   let h1 = document.querySelector("h1");
   let cityName = enterCity.value;
   h1.innerHTML = cityName;
 
   let key = "fo3a64f446f636fead1d860tcbcd7535";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${key}`;
-
-  axios.get(apiUrl).then(showValue);
+  let forecastApi = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${key}&units=metric`
+   
+  axios.get(forecastApi).then(showForecast)
 }
 
-function showValue(response) {
-  let cityTemp = Math.round(response.data.temperature.current);
+function toTitleCase(str) {
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}
+
+function showForecast(response) {
+  let cityTemp = Math.round(response.data.daily[0].temperature.day);
   let tempNow = document.querySelector(".currentTempValue");
   tempNow.innerHTML = `${cityTemp}`;
+
+  let day0IconData = response.data.daily[0].condition.icon_url;
+  let day0IconChange = document.querySelector(".currentTempIcon");
+  let img0 = document.createElement("img");
+    img0.src = day0IconData;
+  day0IconChange.innerHTML = "";
+  day0IconChange.appendChild(img0);
+
+  let day0WeatherData = response.data.daily[0].condition.description;
+  day0WeatherData = toTitleCase(day0WeatherData)
+  let day0WeatherChange = document.querySelector("#day0Weather");
+    day0WeatherChange.innerHTML = `${day0WeatherData}`;
+
+
+  let humidityData = response.data.daily[0].temperature.humidity;
+  let humidityChange = document.querySelector(".humidity");
+  humidityChange.innerHTML = `${humidityData}%`;
+
+  let windData = Math.round(response.data.daily[0].wind.speed);
+  let windChange = document.querySelector(".wind");
+  windChange.innerHTML = `${windData} `
+
+
+  let day1IconData = response.data.daily[1].condition.icon_url;
+  let day1IconChange = document.querySelector("#day1Icon");
+  let img1 = document.createElement("img");
+    img1.src = day1IconData;
+  day1IconChange.innerHTML = "";
+ day1IconChange.appendChild(img1);
+
+ let day1TempData = Math.round(response.data.daily[1].temperature.day);
+  let day1TempChange = document.querySelector("#day1TempValue");
+  day1TempChange.innerHTML = `${day1TempData}`;
+
+  let day1WeatherData = response.data.daily[1].condition.description;
+  day1WeatherData = toTitleCase(day1WeatherData)
+  let day1WeatherChange = document.querySelector("#day1Weather");
+    day1WeatherChange.innerHTML = `${day1WeatherData}`;
+
+    let day2IconData = response.data.daily[2].condition.icon_url;
+  let day2IconChange = document.querySelector("#day2Icon");
+  let img2 = document.createElement("img");
+    img2.src = day2IconData;
+  day2IconChange.innerHTML = "";
+ day2IconChange.appendChild(img2);
+
+ let day2TempData = Math.round(response.data.daily[2].temperature.day);
+  let day2TempChange = document.querySelector("#day2TempValue");
+  day2TempChange.innerHTML = `${day2TempData}`;
+
+  let day2WeatherData = response.data.daily[2].condition.description;
+  day2WeatherData = toTitleCase(day2WeatherData)
+  let day2WeatherChange = document.querySelector("#day2Weather");
+    day2WeatherChange.innerHTML = `${day2WeatherData}`;
 }
 
 let cityForm = document.querySelector("#city-input");
 cityForm.addEventListener("submit", citySubmit);
+
 
 //It was a CLASS VS ID Issue on line 37
