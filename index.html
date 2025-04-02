@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/styles.css" />
-    <link 
+    <link rel="stylesheet" href="src/styles.css" /> 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,18 +23,60 @@
     </header>
     <main>
       <div class="currentWeather">
-        <div>
+        <div class = "inputCity">
           <h1>Paris</h1>
-          <p>
-            <span id= "date-now"> Tuesday 1600 </span>, moderate rain <br />
+        </div>
+          <div class= "currentTemp">
+            <span class="currentTempValue">14</span>
+            <span class="currentTempUnit">°C <span>
+        </div>
+        </div>
+        <span class="currentTempIcon">☀️</span>
+        <div class = "currentWeatherDetails">
+         <p>
+             <span id= "date-now"> Tuesday 1600 </span>, moderate rain <br />
             Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
           </p>
         </div>
-        <div class=currentTemp>
-          <span class="currentTempIcon">☀️</span>
-          <span class="currentTempValue">14</span>
-            <span class="currentTempUnit">°C <span>
+  
+    <div class = "forecastElements">
+      <div class="dailyForecast"> 
+        <div class = "day1Temp"> 
+          <div class = "forecastIcon" id = "day1Icon">☀️</div>
+          <span class = "forecastTempValue" id = "day1TempValue"> 0 </span>
+          <span class = "forecastTempUnit">°C </span>
+          <div class = "forecastWeather" id = "day1Weather"> 'Chance of rain' </div>
         </div>
+        </div>
+        <div class="dailyForecast"> 
+        <div class = "day2Temp"> 
+          <div class = "forecastIcon" id = "day2Icon">☀️</div>
+          <span class = "forecastTempValue" id = "day2TempValue"> 0 </span>
+          <span class = "forecastTempUnit">°C </span>
+          <div class = "forecastWeather" id = "day2Weather"> 'Chance of rain' </div>
+        </div>
+        </div>
+        <div class="dailyForecast"> 
+          <div class = "forecastIcon" id = "day3Icon">☀️</div>
+          <span class = "forecastTempValue" id = "day3TempValue"> 0 </span>
+          <span class = "forecastTempUnit">°C </span>
+          <div class = "forecastWeather" id = "day3Weather"> 'Chance of rain' </div>
+        </div>
+        <div class="dailyForecast"> 
+          <div class = "forecastIcon" id = "day4Icon">☀️</div>
+          <span class = "forecastTempValue" id = "day4TempValue"> 0 </span>
+          <span class = "forecastTempUnit">°C </span>
+          <div class = "forecastWeather" id = "day4Weather"> 'Chance of rain' </div>
+        </div>
+        <div class="dailyForecast"> 
+          <div class = "forecastIcon" id = "day5Icon">☀️</div>
+          <span class = "forecastTempValue" id = "day5TempValue"> 0 </span>
+          <span class = "forecastTempUnit">°C </span>
+          <div class = "forecastWeather" id = "day5Weather"> 'Chance of rain' </div>
+        </div>
+          </div>
+      </div>
+    </div>
     </div>
     </main>
     <footer>

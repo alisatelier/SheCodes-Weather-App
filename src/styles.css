@@ -43,7 +43,7 @@ form {
   border-radius: 5px;
 }
 h1 {
-  font-size: 48px;
+  font-size: 60px;
   margin: 0 auto;
 }
 p {
@@ -55,25 +55,40 @@ strong {
 }
 .currentWeather {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .currentTemp {
-  padding-top: 10px;
-}
-.currentTempIcon {
-  font-size: 48px;
-  position: relative;
-  bottom: 10px;
+  padding-top: 0px;
 }
 .currentTempValue {
-  font-size: 80px;
+  font-size: 60px;
   position: relative;
 }
 .currentTempUnit {
-  font-size: 30px;
+  font-size: 48px;
   font-weight: thin;
   position: relative;
-  top: -35px;
+  top: -15px;
+}
+.currentTempIcon {
+  font-size: 48px;
+  text-align: center;
+  display: block;
+  bottom: 10px;
+}
+.currentWeatherDetails{
+  display: block;
+  text-align: center;
+
+}
+.forecastElements{
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.forecastTemp{
+  font-size: 60px;
+  position: relative;
 }
 a {
   color: #9494e0;
