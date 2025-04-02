@@ -11,9 +11,6 @@ footer {
   border-bottom: 2px, solid, #8d8db3;
   padding-top: 30px;
 }
-.hidden{
-  display:none;
-}
 div {
   display: block;
 }
@@ -94,7 +91,7 @@ strong {
 .forecastElements{
   padding: 30px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .dailyForecast{
   background: linear-gradient(160deg, rgb(255, 255, 255) 0%, rgb(141, 141, 179) 100%);
@@ -105,7 +102,12 @@ strong {
   padding: 10px;
   border-radius: 5px;
   text-align: center;
-  max-width: 80px;
+  width: 80px;
+}
+.forecastIcon{
+  object-fit: cover;
+  vertical-align: middle;
+  margin: -20px;
 }
 .forecastTemp{
   font-size: 60px;
@@ -114,6 +116,13 @@ strong {
 .forecastWeather{
   padding:5px;
   font-size: 12px;
+}
+.forecastIcon{
+  display:block;
+  text-align:center;
+  padding 0px;
+  margin: -2 auto;
+  vertical-align: middle;
 }
 .windUnits{
   font-weight: lighter;
