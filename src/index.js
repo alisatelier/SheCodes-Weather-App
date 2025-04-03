@@ -81,9 +81,6 @@ function showForecast(response) {
   day1IconChange.innerHTML = "";
  day1IconChange.appendChild(img1);
 
- let day1TempData = Math.round(response.data.daily[1].temperature.day);
-  let day1TempChange = document.querySelector("#day1TempValue");
-  day1TempChange.innerHTML = `${day1TempData}`;
 
   let day1TempMinData = Math.round(response.data.daily[1].temperature.minimum);
   let day1TempMinChange = document.querySelector("#day1TempMin");
@@ -106,10 +103,6 @@ function showForecast(response) {
   day2IconChange.innerHTML = "";
  day2IconChange.appendChild(img2);
 
- let day2TempData = Math.round(response.data.daily[2].temperature.day);
-  let day2TempChange = document.querySelector("#day2TempValue");
-  day2TempChange.innerHTML = `${day2TempData}`;
-
   let day2WeatherData = response.data.daily[2].condition.description;
   day2WeatherData = toTitleCase(day2WeatherData)
   let day2WeatherChange = document.querySelector("#day2Weather");
@@ -130,10 +123,6 @@ let img3 = document.createElement("img");
   img3.src = day3IconData;
 day3IconChange.innerHTML = "";
 day3IconChange.appendChild(img3);
-
-let day3TempData = Math.round(response.data.daily[3].temperature.day);
-let day3TempChange = document.querySelector("#day3TempValue");
-day3TempChange.innerHTML = `${day3TempData}`;
 
 let day3WeatherData = response.data.daily[3].condition.description;
 day3WeatherData = toTitleCase(day3WeatherData)
@@ -156,9 +145,6 @@ let img4 = document.createElement("img");
 day4IconChange.innerHTML = "";
 day4IconChange.appendChild(img4);
 
-let day4TempData = Math.round(response.data.daily[4].temperature.day);
-let day4TempChange = document.querySelector("#day4TempValue");
-day4TempChange.innerHTML = `${day4TempData}`;
 
 let day4WeatherData = response.data.daily[4].condition.description;
 day4WeatherData = toTitleCase(day4WeatherData)
@@ -180,10 +166,6 @@ let img5 = document.createElement("img");
   img5.src = day5IconData;
 day5IconChange.innerHTML = "";
 day5IconChange.appendChild(img5);
-
-let day5TempData = Math.round(response.data.daily[5].temperature.day);
-let day5TempChange = document.querySelector("#day5TempValue");
-day5TempChange.innerHTML = `${day5TempData}`;
 
 let day5WeatherData = response.data.daily[5].condition.description;
 day5WeatherData = toTitleCase(day5WeatherData)
