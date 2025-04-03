@@ -27,7 +27,7 @@ function citySubmit(event) {
   document.querySelector("#hideAfterSubmit").classList.add("hidden")
   let enterCity = document.querySelector("#search-city");
   let h1 = document.querySelector("h1");
-  let cityName = enterCity.value;
+  let cityName = toTitleCase(enterCity.value)
   h1.innerHTML = cityName;
 
   let key = "fo3a64f446f636fead1d860tcbcd7535";
@@ -46,7 +46,7 @@ function toTitleCase(str) {
 function showForecast(response) {
   //today's temperature dispay
   let cityTemp = Math.round(response.data.daily[0].temperature.day);
-  let tempNow = document.querySelector(".currentTempValue");
+  let tempNow = document.querySelector(".currentTempValue")
   tempNow.innerHTML = `${cityTemp}`;
 
   //today's icon display
