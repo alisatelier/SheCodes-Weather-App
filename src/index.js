@@ -23,8 +23,8 @@ dateToday.innerHTML = `${day} ${hours}:${minutes}`;
 
 function citySubmit(event) {
   event.preventDefault();
-  //document.querySelector("main").classList.remove("hidden")
-  //document.querySelector("#hideAfterSubmit").classList.add("hidden")
+  document.querySelector("main").classList.remove("hidden")
+  document.querySelector("#hideAfterSubmit").classList.add("hidden")
   let enterCity = document.querySelector("#search-city");
   let h1 = document.querySelector("h1");
   let cityName = enterCity.value;
@@ -85,7 +85,13 @@ function showForecast(response) {
   let day1TempChange = document.querySelector("#day1TempValue");
   day1TempChange.innerHTML = `${day1TempData}`;
 
- 
+  let day1TempMinData = Math.round(response.data.daily[1].temperature.minimum);
+  let day1TempMinChange = document.querySelector("#day1TempMin");
+    day1TempMinChange.innerHTML = `${day1TempMinData}`
+
+  let day1TempMaxData = Math.round(response.data.daily[1].temperature.maximum);
+  let day1TempMaxChange = document.querySelector("#day1TempMax");
+      day1TempMaxChange.innerHTML = `${day1TempMaxData}`
 
   let day1WeatherData = response.data.daily[1].condition.description;
   day1WeatherData = toTitleCase(day1WeatherData)
@@ -109,6 +115,14 @@ function showForecast(response) {
   let day2WeatherChange = document.querySelector("#day2Weather");
     day2WeatherChange.innerHTML = `${day2WeatherData}`;
 
+    let day2TempMinData = Math.round(response.data.daily[2].temperature.minimum);
+    let day2TempMinChange = document.querySelector("#day2TempMin");
+      day2TempMinChange.innerHTML = `${day2TempMinData}`
+  
+    let day2TempMaxData = Math.round(response.data.daily[2].temperature.maximum);
+    let day2TempMaxChange = document.querySelector("#day2TempMax");
+        day2TempMaxChange.innerHTML = `${day2TempMaxData}`
+
 //third day forecast
 let day3IconData = response.data.daily[3].condition.icon_url;
 let day3IconChange = document.querySelector("#day3Icon");
@@ -125,6 +139,14 @@ let day3WeatherData = response.data.daily[3].condition.description;
 day3WeatherData = toTitleCase(day3WeatherData)
 let day3WeatherChange = document.querySelector("#day3Weather");
   day3WeatherChange.innerHTML = `${day3WeatherData}`;
+
+  let day3TempMinData = Math.round(response.data.daily[3].temperature.minimum);
+  let day3TempMinChange = document.querySelector("#day3TempMin");
+    day3TempMinChange.innerHTML = `${day3TempMinData}`
+
+  let day3TempMaxData = Math.round(response.data.daily[3].temperature.maximum);
+  let day3TempMaxChange = document.querySelector("#day3TempMax");
+      day3TempMaxChange.innerHTML = `${day3TempMaxData}`
 
 //fourth day forecast
   let day4IconData = response.data.daily[4].condition.icon_url;
@@ -143,6 +165,14 @@ day4WeatherData = toTitleCase(day4WeatherData)
 let day4WeatherChange = document.querySelector("#day4Weather");
   day4WeatherChange.innerHTML = `${day4WeatherData}`;
 
+  let day4TempMinData = Math.round(response.data.daily[4].temperature.minimum);
+  let day4TempMinChange = document.querySelector("#day4TempMin");
+    day4TempMinChange.innerHTML = `${day4TempMinData}`
+
+  let day4TempMaxData = Math.round(response.data.daily[4].temperature.maximum);
+  let day4TempMaxChange = document.querySelector("#day4TempMax");
+      day4TempMaxChange.innerHTML = `${day4TempMaxData}`
+
 //fifth day forecast
 let day5IconData = response.data.daily[5].condition.icon_url;
 let day5IconChange = document.querySelector("#day5Icon");
@@ -159,6 +189,14 @@ let day5WeatherData = response.data.daily[5].condition.description;
 day5WeatherData = toTitleCase(day5WeatherData)
 let day5WeatherChange = document.querySelector("#day5Weather");
   day5WeatherChange.innerHTML = `${day5WeatherData}`;
+
+  let day5TempMinData = Math.round(response.data.daily[5].temperature.minimum);
+  let day5TempMinChange = document.querySelector("#day5TempMin");
+    day5TempMinChange.innerHTML = `${day5TempMinData}`
+
+  let day5TempMaxData = Math.round(response.data.daily[5].temperature.maximum);
+  let day5TempMaxChange = document.querySelector("#day5TempMax");
+      day5TempMaxChange.innerHTML = `${day5TempMaxData}`
 }
 let cityForm = document.querySelector("#city-input");
 cityForm.addEventListener("submit", citySubmit);

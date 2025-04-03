@@ -32,7 +32,7 @@ form {
   font-size: 16px;
   padding: 20px;
   border-radius: 5px;
-  width: 80%;
+  width: 82%;
 }
 .searchButton {
   background-color: #8d8db3;
@@ -43,7 +43,7 @@ form {
   border-radius: 5px;
 }
 h1 {
-  font-size: 60px;
+  font-size: 70px;
   margin: 0 auto;
 }
 p {
@@ -54,15 +54,24 @@ p {
 strong {
   color: #9494e0;
 }
+
+.currentTemp{
+  padding-top: 0px;
+}
+.currentTempIcon{
+  width:600px;
+}
 .currentWeather {
   display: flex;
   justify-content: space-evenly;
-}
-.currentTemp {
-  padding-top: 0px;
+  background-color: #bcbce2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding:5px 20px;
 }
 .currentTempValue {
-  font-size: 60px;
+  font-size: 70px;
   position: relative;
 }
 .currentTempUnit {
@@ -114,8 +123,9 @@ strong {
   position: relative;
 }
 .forecastWeather{
-  padding:5px;
+  padding:20px;
   font-size: 12px;
+  text-align:center;
 }
 .forecastIcon{
   display:block;
@@ -132,4 +142,7 @@ a {
 }
 a:visited {
   color: #8d8db3;
+}
+.hidden{
+  display:none;
 }
