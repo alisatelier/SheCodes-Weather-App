@@ -73,112 +73,134 @@ function showForecast(response) {
   let windChange = document.querySelector(".wind");
   windChange.innerHTML = `${windData} `
 
-  // first day forecast
-  let day1IconData = response.data.daily[1].condition.icon_url;
-  let day1IconChange = document.querySelector("#day1Icon");
-  let img1 = document.createElement("img");
-    img1.src = day1IconData;
-  day1IconChange.innerHTML = "";
- day1IconChange.appendChild(img1);
+  for (let i = 1; i <= 5; i++) {
+    let dayIconData = response.data.daily[i].condition.icon_url;
+    let dayIconChange = document.querySelector("#day" + i + "Icon");
+    let img = document.createElement("img");
+    img.src = dayIconData;
+      dayIconChange.innerHTML= ""
+    dayIconChange.appendChild(img);
 
-
-  let day1TempMinData = Math.round(response.data.daily[1].temperature.minimum);
-  let day1TempMinChange = document.querySelector("#day1TempMin");
-    day1TempMinChange.innerHTML = `${day1TempMinData}`
-
-  let day1TempMaxData = Math.round(response.data.daily[1].temperature.maximum);
-  let day1TempMaxChange = document.querySelector("#day1TempMax");
-      day1TempMaxChange.innerHTML = `${day1TempMaxData}`
-
-  let day1WeatherData = response.data.daily[1].condition.description;
-  day1WeatherData = toTitleCase(day1WeatherData)
-  let day1WeatherChange = document.querySelector("#day1Weather");
-    day1WeatherChange.innerHTML = `${day1WeatherData}`;
-
-//second day forecast
-  let day2IconData = response.data.daily[2].condition.icon_url;
-  let day2IconChange = document.querySelector("#day2Icon");
-  let img2 = document.createElement("img");
-    img2.src = day2IconData;
-  day2IconChange.innerHTML = "";
- day2IconChange.appendChild(img2);
-
-  let day2WeatherData = response.data.daily[2].condition.description;
-  day2WeatherData = toTitleCase(day2WeatherData)
-  let day2WeatherChange = document.querySelector("#day2Weather");
-    day2WeatherChange.innerHTML = `${day2WeatherData}`;
-
-    let day2TempMinData = Math.round(response.data.daily[2].temperature.minimum);
-    let day2TempMinChange = document.querySelector("#day2TempMin");
-      day2TempMinChange.innerHTML = `${day2TempMinData}`
+    let dayTempMinData = Math.round(response.data.daily[i].temperature.minimum);
+    let dayTempMinChange = document.querySelector("#day" + i + "TempMin");
+      dayTempMinChange.innerHTML = `${dayTempMinData}`
   
-    let day2TempMaxData = Math.round(response.data.daily[2].temperature.maximum);
-    let day2TempMaxChange = document.querySelector("#day2TempMax");
-        day2TempMaxChange.innerHTML = `${day2TempMaxData}`
+    let dayTempMaxData = Math.round(response.data.daily[i].temperature.maximum);
+    let dayTempMaxChange = document.querySelector("#day" + i + "TempMax");
+        dayTempMaxChange.innerHTML = `${dayTempMaxData}`
+  
+    let dayWeatherData = response.data.daily[i].condition.description;
+    dayWeatherData = toTitleCase(dayWeatherData)
+    let dayWeatherChange = document.querySelector("#day" + i + "Weather");
+      dayWeatherChange.innerHTML = `${dayWeatherData}`;
+  }
 
-//third day forecast
-let day3IconData = response.data.daily[3].condition.icon_url;
-let day3IconChange = document.querySelector("#day3Icon");
-let img3 = document.createElement("img");
-  img3.src = day3IconData;
-day3IconChange.innerHTML = "";
-day3IconChange.appendChild(img3);
-
-let day3WeatherData = response.data.daily[3].condition.description;
-day3WeatherData = toTitleCase(day3WeatherData)
-let day3WeatherChange = document.querySelector("#day3Weather");
-  day3WeatherChange.innerHTML = `${day3WeatherData}`;
-
-  let day3TempMinData = Math.round(response.data.daily[3].temperature.minimum);
-  let day3TempMinChange = document.querySelector("#day3TempMin");
-    day3TempMinChange.innerHTML = `${day3TempMinData}`
-
-  let day3TempMaxData = Math.round(response.data.daily[3].temperature.maximum);
-  let day3TempMaxChange = document.querySelector("#day3TempMax");
-      day3TempMaxChange.innerHTML = `${day3TempMaxData}`
-
-//fourth day forecast
-  let day4IconData = response.data.daily[4].condition.icon_url;
-let day4IconChange = document.querySelector("#day4Icon");
-let img4 = document.createElement("img");
-  img4.src = day4IconData;
-day4IconChange.innerHTML = "";
-day4IconChange.appendChild(img4);
+  // first day forecast
+  //let day1IconData = response.data.daily[1].condition.icon_url;
+  //let day1IconChange = document.querySelector("#day1Icon");
+ // let img1 = document.createElement("img");
+ //   img1.src = day1IconData;
+ // day1IconChange.innerHTML = "";
+ //day1IconChange.appendChild(img1);
 
 
-let day4WeatherData = response.data.daily[4].condition.description;
-day4WeatherData = toTitleCase(day4WeatherData)
-let day4WeatherChange = document.querySelector("#day4Weather");
-  day4WeatherChange.innerHTML = `${day4WeatherData}`;
+//   let day1TempMinData = Math.round(response.data.daily[1].temperature.minimum);
+//   let day1TempMinChange = document.querySelector("#day1TempMin");
+//     day1TempMinChange.innerHTML = `${day1TempMinData}`
 
-  let day4TempMinData = Math.round(response.data.daily[4].temperature.minimum);
-  let day4TempMinChange = document.querySelector("#day4TempMin");
-    day4TempMinChange.innerHTML = `${day4TempMinData}`
+//   let day1TempMaxData = Math.round(response.data.daily[1].temperature.maximum);
+//   let day1TempMaxChange = document.querySelector("#day1TempMax");
+//       day1TempMaxChange.innerHTML = `${day1TempMaxData}`
 
-  let day4TempMaxData = Math.round(response.data.daily[4].temperature.maximum);
-  let day4TempMaxChange = document.querySelector("#day4TempMax");
-      day4TempMaxChange.innerHTML = `${day4TempMaxData}`
+//   let day1WeatherData = response.data.daily[1].condition.description;
+//   day1WeatherData = toTitleCase(day1WeatherData)
+//   let day1WeatherChange = document.querySelector("#day1Weather");
+//     day1WeatherChange.innerHTML = `${day1WeatherData}`;
 
-//fifth day forecast
-let day5IconData = response.data.daily[5].condition.icon_url;
-let day5IconChange = document.querySelector("#day5Icon");
-let img5 = document.createElement("img");
-  img5.src = day5IconData;
-day5IconChange.innerHTML = "";
-day5IconChange.appendChild(img5);
+// //second day forecast
+// //   let day2IconData = response.data.daily[2].condition.icon_url;
+// //   let day2IconChange = document.querySelector("#day2Icon");
+// //   let img2 = document.createElement("img");
+// //     img2.src = day2IconData;
+// //   day2IconChange.innerHTML = "";
+// //  day2IconChange.appendChild(img2);
 
-let day5WeatherData = response.data.daily[5].condition.description;
-day5WeatherData = toTitleCase(day5WeatherData)
-let day5WeatherChange = document.querySelector("#day5Weather");
-  day5WeatherChange.innerHTML = `${day5WeatherData}`;
+//   let day2WeatherData = response.data.daily[2].condition.description;
+//   day2WeatherData = toTitleCase(day2WeatherData)
+//   let day2WeatherChange = document.querySelector("#day2Weather");
+//     day2WeatherChange.innerHTML = `${day2WeatherData}`;
 
-  let day5TempMinData = Math.round(response.data.daily[5].temperature.minimum);
-  let day5TempMinChange = document.querySelector("#day5TempMin");
-    day5TempMinChange.innerHTML = `${day5TempMinData}`
+//     let day2TempMinData = Math.round(response.data.daily[2].temperature.minimum);
+//     let day2TempMinChange = document.querySelector("#day2TempMin");
+//       day2TempMinChange.innerHTML = `${day2TempMinData}`
+  
+//     let day2TempMaxData = Math.round(response.data.daily[2].temperature.maximum);
+//     let day2TempMaxChange = document.querySelector("#day2TempMax");
+//         day2TempMaxChange.innerHTML = `${day2TempMaxData}`
 
-  let day5TempMaxData = Math.round(response.data.daily[5].temperature.maximum);
-  let day5TempMaxChange = document.querySelector("#day5TempMax");
-      day5TempMaxChange.innerHTML = `${day5TempMaxData}`
+// //third day forecast
+// // let day3IconData = response.data.daily[3].condition.icon_url;
+// // let day3IconChange = document.querySelector("#day3Icon");
+// // let img3 = document.createElement("img");
+// //   img3.src = day3IconData;
+// // day3IconChange.innerHTML = "";
+// // day3IconChange.appendChild(img3);
+
+// let day3WeatherData = response.data.daily[3].condition.description;
+// day3WeatherData = toTitleCase(day3WeatherData)
+// let day3WeatherChange = document.querySelector("#day3Weather");
+//   day3WeatherChange.innerHTML = `${day3WeatherData}`;
+
+//   let day3TempMinData = Math.round(response.data.daily[3].temperature.minimum);
+//   let day3TempMinChange = document.querySelector("#day3TempMin");
+//     day3TempMinChange.innerHTML = `${day3TempMinData}`
+
+//   let day3TempMaxData = Math.round(response.data.daily[3].temperature.maximum);
+//   let day3TempMaxChange = document.querySelector("#day3TempMax");
+//       day3TempMaxChange.innerHTML = `${day3TempMaxData}`
+
+// //fourth day forecast
+// //   let day4IconData = response.data.daily[4].condition.icon_url;
+// // let day4IconChange = document.querySelector("#day4Icon");
+// // let img4 = document.createElement("img");
+// //   img4.src = day4IconData;
+// // day4IconChange.innerHTML = "";
+// // day4IconChange.appendChild(img4);
+
+
+// let day4WeatherData = response.data.daily[4].condition.description;
+// day4WeatherData = toTitleCase(day4WeatherData)
+// let day4WeatherChange = document.querySelector("#day4Weather");
+//   day4WeatherChange.innerHTML = `${day4WeatherData}`;
+
+//   let day4TempMinData = Math.round(response.data.daily[4].temperature.minimum);
+//   let day4TempMinChange = document.querySelector("#day4TempMin");
+//     day4TempMinChange.innerHTML = `${day4TempMinData}`
+
+//   let day4TempMaxData = Math.round(response.data.daily[4].temperature.maximum);
+//   let day4TempMaxChange = document.querySelector("#day4TempMax");
+//       day4TempMaxChange.innerHTML = `${day4TempMaxData}`
+
+// //fifth day forecast
+// // let day5IconData = response.data.daily[5].condition.icon_url;
+// // let day5IconChange = document.querySelector("#day5Icon");
+// // let img5 = document.createElement("img");
+// //   img5.src = day5IconData;
+// // day5IconChange.innerHTML = "";
+// // day5IconChange.appendChild(img5);
+
+// let day5WeatherData = response.data.daily[5].condition.description;
+// day5WeatherData = toTitleCase(day5WeatherData)
+// let day5WeatherChange = document.querySelector("#day5Weather");
+//   day5WeatherChange.innerHTML = `${day5WeatherData}`;
+
+//   let day5TempMinData = Math.round(response.data.daily[5].temperature.minimum);
+//   let day5TempMinChange = document.querySelector("#day5TempMin");
+//     day5TempMinChange.innerHTML = `${day5TempMinData}`
+
+//   let day5TempMaxData = Math.round(response.data.daily[5].temperature.maximum);
+//   let day5TempMaxChange = document.querySelector("#day5TempMax");
+//       day5TempMaxChange.innerHTML = `${day5TempMaxData}`
 }
 let cityForm = document.querySelector("#city-input");
 cityForm.addEventListener("submit", citySubmit);
